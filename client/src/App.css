@@ -1,38 +1,93 @@
-.App {
+:root {
+  --size-search: 3rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Searchbar */
+form {
   text-align: center;
+  position: sticky;
+  top: 1rem;
+  margin: 1rem;
+  z-index: 10;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+form > div {
+  position: relative;
+  margin: 0 auto;
+  width: fit-content;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+form input, form button {
+  width: var(--size-search);
+  height: var(--size-search);
+  border-radius: 50%;
+  transition: 1s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+form button {
+  text-align: center;
+  border: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+}
+
+form button svg {
+  height: calc(var(--size-search) / 2);
+}
+
+form input {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  border: none;
+  padding: calc(var(--size-search) / 2);
+}
+
+form button:hover ~ input {
+  width: 40vw;
+  transition: 1s;
+  border-radius: var(--size-search);
+}
+
+input:hover {
+  width: 40vw;
+  border-radius: var(--size-search);
+}
+
+
+/* List with photos */
+ul {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 90%;
+  margin: 0 auto;
 }
 
-.App-link {
-  color: #61dafb;
+ul li {
+  list-style-type: none;
+  margin: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+img {
+  border-radius: 0.5rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: 0.4s;
+}
+
+img:hover {
+  transform: scale(1.1);
+  transition: 0.4s;
+}
+
+@media screen and (min-width: 600px) {
+  ul {
+    justify-content: space-between;
   }
 }
