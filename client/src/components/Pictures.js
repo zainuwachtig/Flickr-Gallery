@@ -2,19 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function Pictures() {
-  const [data, setData] = useState({ pictures: [] });
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    async function getDataFromServer() {
+    const getDataFromServer = async () => {
       const response = await axios("http://localhost:5500/api");
       const data = response.data.photos.photo;
       setData(data);
-    }
+    };
 
     getDataFromServer();
-    console.log(data);
-    // Object.keys(data).map werkt soms wel
-  }, []);
+  }, [data]);
 
   return (
     <ul>
@@ -22,7 +20,7 @@ function Pictures() {
         <li>
           <img
             // https://www.flickr.com/services/api/misc.urls.html
-            src={`https://live.staticflickr.com/${picture.server}/${picture.id}_${picture.secret}_m.jpg`}
+            src={`https://live.staticflickr.com/${picture.server}/${picture.id}_${picture.secret}_n.jpg`}
             alt={`${picture.title}`}
           ></img>
         </li>

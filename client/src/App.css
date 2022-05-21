@@ -36,6 +36,8 @@ form button {
   position: absolute;
   right: 0;
   background-color: white;
+  z-index: 20;
+  cursor: pointer;
 }
 
 form button svg {
@@ -54,9 +56,14 @@ form button:hover ~ input {
   border-radius: var(--size-search);
 }
 
-input:hover {
+form input:hover {
   width: 40vw;
   border-radius: var(--size-search);
+}
+
+form input:focus {
+  outline: 3px solid #fe5650;
+  transform: scale(1.05);
 }
 
 

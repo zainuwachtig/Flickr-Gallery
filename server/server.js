@@ -7,24 +7,36 @@ const app = express();
 const port = process.env.PORT || 5500;
 const flickr = new Flickr(process.env.API_KEY);
 
+// The default value
+let searchQuery = "zoo";
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.get("/api", async (req, res) => {
-  async function getData() {
-    // await flickr.photos
-    //   .getRecent()
-    //   .then((response) => res.send(response.body))
-    //   .catch((error) => console.log(error));
-
+  const getData = async (searchQuery) => {
     await flickr.photos
-      .search({ text: "monkey" })
+      .search({ text: searchQuery })
       .then((response) => res.send(response.body))
       .catch((error) => console.log(error));
-  }
+  };
 
-  getData();
+  getData(searchQuery);
+});
+
+app.post("/api", async (req, res) => {
+  const getData = async (searchQuery) => {
+    await flickr.photos
+      .search({ text: searchQuery })
+      .then((response) => res.send(response.body))
+      .catch((error) => console.log(error));
+  };
+
+  if (req.body.query !== "") {
+    searchQuery = req.body.query;
+    getData(searchQuery);
+  }
 });
 
 app.listen(port, () => {
