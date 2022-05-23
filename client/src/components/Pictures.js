@@ -20,7 +20,7 @@ function Pictures() {
         <li>
           <img
             // https://www.flickr.com/services/api/misc.urls.html
-            src={`https://live.staticflickr.com/${picture.server}/${picture.id}_${picture.secret}_n.jpg`}
+            src={`https://live.staticflickr.com/${picture.server}/${picture.id}_${picture.secret}_q.jpg`}
             alt={`${picture.title}`}
           ></img>
         </li>

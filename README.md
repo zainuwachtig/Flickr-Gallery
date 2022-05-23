@@ -4,6 +4,8 @@
 
 It is a simple application where you can search through photos from Flickr, a platform for sharing photos and videos. This is my first application made with React, so any kind of feedback is welcome!
 
+![Preview of the gallery](https://user-images.githubusercontent.com/74155415/169794650-ddcd8b66-c0a4-49a6-9d36-0a469784ffac.gif)
+
 ## Features
 
 - [x] List of photos from the Flickr API
