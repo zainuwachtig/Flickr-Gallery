@@ -10,8 +10,6 @@ function Searchbar() {
     setSearchTerm(e.target[1].value);
   };
 
-  console.log(searchTerm);
-
   const sendQueryToSever = async () => {
     await axios.post("http://localhost:5500/api", {
       query: searchTerm,
